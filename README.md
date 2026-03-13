@@ -112,14 +112,14 @@ The following are checked automatically on each push:
 
 Before submitting, verify:
 
-- [ ] All 4 sections are complete (Home, About, Projects, Contact)
+- [x] All 4 sections are complete (Home, About, Projects, Contact)
 - [ ] HTML validates with no errors
 - [ ] CSS uses custom properties (variables)
 - [ ] Flexbox is used for at least one component
 - [ ] CSS Grid is used for at least one component
 - [ ] Site is responsive at all breakpoints
-- [ ] All images have alt text
-- [ ] Form inputs have labels
+- [x] All images have alt text
+- [x] Form inputs have labels
 - [ ] Screenshots added to `/screenshots` folder
 - [ ] README updated with your information
 
@@ -127,19 +127,19 @@ Before submitting, verify:
 
 ## Your Information
 
-**Name:** [Your Name]
-**Student ID:** [Your Student ID]
-**Design Theme:** [Describe your portfolio theme/style]
+**Name:** Sepiso Nyambe.
+**Student ID:** 2022024532
+**Design Theme:** Cybersecurity-themed minimal portfolio
 
 ### CSS Techniques Used
-- [ ] CSS Custom Properties
-- [ ] Flexbox
-- [ ] CSS Grid
-- [ ] Media Queries
+- [x] CSS Custom Properties
+- [x] Flexbox
+- [x] CSS Grid
+- [x] Media Queries
 - [ ] Other: _______________
 
 ### Challenges & Solutions
-[Describe any challenges you faced and how you solved them]
+I had challeges withembedding images correctly, but i checked the file pathusing VS code timeline to bring back my lost code
 
 ### Credits
 [List any images, fonts, or resources used with attribution]
