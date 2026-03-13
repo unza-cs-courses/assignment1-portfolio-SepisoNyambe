@@ -1,388 +1,611 @@
-/*
-============================================================
-ASSIGNMENT 1: RESPONSIVE PORTFOLIO WEBSITE
-CSC4035 Web Programming and Technologies
+/* my portfolio styles - sepiso nyambe */
 
-Instructions:
-1. Complete all TODO sections
-2. Use CSS custom properties (variables) for colors and spacing
-3. Use Flexbox for at least one layout component
-4. Use CSS Grid for at least one layout component
-5. Implement mobile-first responsive design
-6. Add at least 3 breakpoints (mobile, tablet, desktop)
-
-DO NOT use CSS frameworks (Bootstrap, Tailwind, etc.)
-============================================================
-*/
-
-/* ============================================================
-   CSS CUSTOM PROPERTIES (VARIABLES)
-   TODO: Define your color scheme and spacing variables
-   ============================================================ */
 :root {
-    /* Colors - TODO: Customize your color palette */
-    --color-primary: /* Your primary color */;
-    --color-primary-dark: /* Darker shade */;
-    --color-secondary: /* Secondary color */;
-    --color-text: /* Main text color */;
-    --color-text-light: /* Lighter text */;
-    --color-background: /* Page background */;
-    --color-background-alt: /* Alternate background */;
-    --color-border: /* Border color */;
+  /* Colors */
+  --color-primry: #3a86ff;
+   --color-primary-dark: #2176ee;
+  --color-secondary: #06d6a0;
+   --color-ttext: #eaeaea;
+  --color-tex t-light: #a0a0b0;
+  --color-background: #1a1a2e;
+  --color-bakground-alt: #16213e;
+   
+  --color-border: #2a2a4a;
 
-    /* Typography - TODO: Define your font sizes */
-    --font-family: /* Your font stack */;
-    --font-size-base: /* Base size, e.g., 16px */;
-    --font-size-sm: /* Small text */;
-    --font-size-lg: /* Large text */;
-    --font-size-xl: /* Extra large */;
-    --font-size-2xl: /* Headings */;
-    --font-size-3xl: /* Large headings */;
+   /* Typography */
+  --font-family: 'Segoe UI', sans-serif;
+  --font-size-base: 16px;
+ --font-size-sm: 0.85rem;
+  --font-size-lg: 1.1rem;
+  --font-size-xl: 1.35rem;
+   --font-size-2xl: 1.8rem;
+  --font-size-3xl: 2.2rem;
 
-    /* Spacing - TODO: Define spacing scale */
-    --spacing-xs: /* Extra small */;
-    --spacing-sm: /* Small */;
-    --spacing-md: /* Medium */;
-    --spacing-lg: /* Large */;
-    --spacing-xl: /* Extra large */;
+/* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+   --spacing-md: 16px;
+  --spacing-lg: 28px;
+--spaccing-xl: 48px;
 
-    /* Layout */
-    --max-width: /* Container max-width */;
-    --border-radius: /* Default border radius */;
+  /* Layout */
+  --max-width: 1100px;
+  --border-radius: 8px;
 
-    /* Transitions */
-    --transition-fast: /* Fast transition */;
-    --transition-normal: /* Normal transition */;
+ /* Transitions */
+   --transtion-fast: 0.2s ease;
+   
+  --transition-normal: 0.3s ease;
 }
 
-/* ============================================================
+/* =====================
    CSS RESET / BASE STYLES
-   TODO: Add your CSS reset
-   ============================================================ */
+   ===================== */
 *,
 *::before,
-*::after {
-    /* TODO: box-sizing, margin, padding reset */
+ *::after {
+  box-sizing: border-box;
+   margin: 0;
+  padding: 0;
 }
 
 html {
-    /* TODO: scroll-behavior, font-size */
+  scroll-behavior: smooth;
+font-size: var(--font-size-base);
 }
 
 body {
-    /* TODO: font-family, color, background-color, line-height */
+ font-family: var(--font-family);
+  color: var(--color-text);
+   background-color: var(--color-background);
+   
+  line-height: 1.65;
 }
 
 img {
-    /* TODO: Make images responsive */
+  max-width: 100%;
+   display: block;
 }
 
 a {
-    /* TODO: Link styles */
+  color: var(--color-primary);
+  text-decoration: none;
+   
+   transition: color var(--transition-fast);
 }
 
 a:hover {
-    /* TODO: Link hover state */
+  color: var(--color-secondary);
+   text-decoration: underline;
 }
 
 ul {
-    /* TODO: List reset */
+  list-style: none;
 }
 
-/* ============================================================
+/* =====================
    UTILITY CLASSES
-   TODO: Create reusable utility classes
-   ============================================================ */
+   ===================== */
 .container {
-    /* TODO: Container styles
-     * - width: 100%
-     * - max-width
-     * - margin: 0 auto
-     * - padding
-     */
+  width: 100%;
+   max-width: var(--max-width);
+  margin: 0 auto;
+ padding: 0 var(--spacing-md);
 }
 
-/* ============================================================
+/* =====================
    BUTTONS
-   TODO: Style your buttons
-   ============================================================ */
+   ===================== */
 .btn {
-    /* TODO: Base button styles
-     * - display, padding
-     * - border, border-radius
-     * - font-size, font-weight
-     * - text-align, cursor
-     * - transition
-     */
+  display: inline-block;
+  padding: 9px 22px;
+   
+  border: 2px solid transparent;
+  border-radius: var(--border-radius);
+   font-size: var(--font-size-base);
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+   transition: background-color var(--transition-normal),
+              color var(--transition-normal),
+               border-color var(--transition-normal);
 }
 
 .btn--primary {
-    /* TODO: Primary button (filled) */
+  background-color:  var(--color-primary);
+   color: #fff;
+    border-color: var(--color-primary);
 }
 
 .btn--primary:hover {
-    /* TODO: Primary button hover */
+  background-color: var(--color-primary-dark);
+  border-color: var (--color-primary-dark);
+  color: #fff;
+  text-decoration: none;
 }
 
 .btn--outline {
-    /* TODO: Outline button (bordered) */
+  background-color: transparent;
+   color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .btn--outline:hover {
-    /* TODO: Outline button hover */
+  background-color: var(--color-primary);
+  color: #fff;
+   text-decoration: none;
 }
 
 .btn--small {
-    /* TODO: Small button variant */
+  padding: 5px 14px;
+   
+  font-size: var(--font-size-sm);
 }
 
-/* ============================================================
+/* =====================
    HEADER & NAVIGATION
-   TODO: Style navigation using Flexbox
-   Requirements:
-   - Fixed or sticky header
-   - Logo on left, nav links on right
-   - Mobile-friendly (links stack or hamburger menu)
-   ============================================================ */
+   ===================== */
 .header {
-    /* TODO: Style the header
-       Consider: position, background, padding, box-shadow, z-index */
+  position: fixed;
+   top: 0;
+  width: 100%;
+  background-color: #0f3460;
+   z-index: 999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
+/* nav uses flexbox - logo left, links right */
 .nav {
-    /* TODO: Use Flexbox for navigation layout
-     * - display: flex
-     * - justify-content: space-between
-     * - align-items: center
-     */
+  display: flex;
+justify-content: space-between;
+  align-items: center;
+  height: 65px;
+  padding: 0 var(--spacing-md);
+  max-width: var(--max-width);
+ margin: 0 auto;
 }
 
 .nav__logo a {
-    /* TODO: Logo styles */
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+   
+  color: var(--color-secondary);
 }
 
+.nav__logo a:hover {
+  color: var(--color-primary);
+   text-decoration: none;
+}
+
+/* mobile: stack vertically or hide - desktop: horizontal flexbox */
 .nav__menu {
-    /* TODO: Style navigation menu
-       Mobile: Stack vertically or hide
-       Desktop: Horizontal with Flexbox */
+  display: flex;
+ gap: 24px;
 }
 
 .nav__menu a {
-    /* TODO: Navigation link styles */
+  color: var(--color-text);
+   
+  font-size:  0.95rem;
 }
 
 .nav__menu a:hover {
-    /* TODO: Navigation link hover */
+  color: var (--color-secondary);
+  text-decoration: none;
 }
 
-/* ============================================================
+/* =====================
    HERO SECTION
-   TODO: Style hero section
-   ============================================================ */
+   ===================== */
+/* min-height full screen, flexbox for centering */
 .hero {
-    /* TODO: Style hero section
-       Consider: min-height, background, centering content
-       Use Flexbox for centering */
+  min-height: 100vh;
+   padding-top: 65px;
+  display: flex;
+   align-items: center;
+   
+  background-color: var(--color-background);
 }
 
+.hero__content {
+  display: flex;
+   flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 55px var(--spacing-md);
+ text-align: center;
+  width: 100%;
+}
+
+/* style your name */
 .hero__content h1 {
-    /* TODO: Style your name */
+   
+  font-size: 2.6rem;
+  font-weight: 700;
+   color: var(--color-text);
+  line-height: 1.2;
 }
 
+.hero__content h1 span {
+  color: #ff006e;
+}
+
+/* style tagline */
 .hero__tagline {
-    /* TODO: Style tagline */
+  font-size: var(--font-size-lg);
+   color: var(--color-text-light);
+  max-width: 560px;
 }
 
-/* ============================================================
+.hero__buttons {
+  display: flex;
+  gap: var(--spacing-md);
+   flex-wrap: wrap;
+  justify-content:  center;
+}
+
+/* =====================
    ABOUT SECTION
-   TODO: Style about section using CSS Grid or Flexbox
-   ============================================================ */
+   ===================== */
 .about {
-    /* TODO: Section padding */
+  padding: 70px 0;
+  background-color:  var(--color-background-alt);
 }
 
 .about h2 {
-    /* TODO: Section heading */
+  font-size: var(--font-size-2xl);
+  text-align: center;
+   margin-bottom:35px;
+  color: var(--color-text);
 }
 
+.about h2::after {
+  content: '';
+  display: block;
+  width: 45px;
+   height: 3px;
+  background: var(--color-primary);
+   margin: 7px auto 0;
+}
+
+/* mobile: stack image above text */
 .about__content {
-    /* TODO: Use CSS Grid or Flexbox for layout
-       Mobile: Stack image above text
-       Desktop: Side by side */
+  display: flex;
+   flex-direction: column;
+  gap: 25px;
+  align-items: center;
 }
 
+/* style profile image */
 .about__image img {
-    /* TODO: Style profile image */
+  width: 185px;
+  height: 185px;
+   
+   border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ff006e;
 }
-
 .about__text p {
-    /* TODO: Paragraph styles */
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.8;
 }
-
 .about__text h3 {
-    /* TODO: Subheading styles */
+  font-size: var(--font-size-xl);
+  color: var(--color-text);
+  margin-bottom: 10px;
 }
 
+
+/* flexbox, tags/badges style */
 .skills-list {
-    /* TODO: Style skills list
-       Consider: Flexbox, tags/badges style */
+  display: flex;
+   flex-wrap: wrap;
+  gap: 9px;
 }
 
 .skills-list li {
-    /* TODO: Individual skill badge */
+   background-color: #1e2a45;
+  color: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+   padding: 3px 12px;
+  border-radius: 20px;
+   
+  font-size: var(--font-size-sm);
 }
 
-/* ============================================================
+/* =====================
    PROJECTS SECTION
-   TODO: Style projects using CSS Grid
-   ============================================================ */
+   ===================== */
+
 .projects {
-    /* TODO: Section styling */
+  padding: 70px 0;
+  background-color: var(--color-background);
 }
 
 .projects h2 {
-    /* TODO: Section heading */
+   
+  font-size: var(--font-size-2xl);
+  text-align: center;
+  margin-bottom: 35px;
+   color: var(--color-text);
 }
 
+.projects h2::after {
+  content: '';
+   display: block;
+  width: 45px;
+  height: 3px;
+  background: var(--color-primary);
+  margin: 7px auto 0;
+}
+
+/* CSS Grid for project cards - mobile: 1 column */
 .projects__grid {
-    /* TODO: Use CSS Grid for project cards
-       Mobile: 1 column
-       Tablet: 2 columns
-       Desktop: 3 columns */
+  display: grid;
+   grid-template-columns: 1fr;
+  gap: 22px;
 }
 
 .project-card {
-    /* TODO: Style project cards
-     * - background, border-radius, overflow
-     * - box-shadow, transition
-     */
+  background-color: var(--color-background-alt);
+  border: 1px solid var(--color-border);
+   border-radius: 12px;
+  overflow: hidden;
+ transtion: transform var(--transition-normal),
+              border-color var(--transition-normal);
 }
 
+/* card hover effect */
 .project-card:hover {
-    /* TODO: Card hover effect */
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
 }
 
+/* project image */
 .project-card img {
-    /* TODO: Project image */
+  width: 100%;
+   height: 190px;
+  object-fit: cover;
+   
+  background-color: #2a2a4a;
 }
 
+/* card content area */
 .project-card__content {
-    /* TODO: Card content area */
+    padding: var(--spacing-md);
 }
 
+/* project title */
 .project-card__content h3 {
-    /* TODO: Project title */
+ font-size: var(--font-size-xl);
+  color: var(--color-text);
+   margin-bottom: 9px;
 }
 
+/* project description */
 .project-card__content p {
-    /* TODO: Project description */
+  color: var(--color-text-light);
+   font-size: 0.93rem;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.7;
 }
 
+
+
+/* links container (flexbox) */
 .project-card__links {
-    /* TODO: Links container (Flexbox) */
+  display: flex;
+   gap: 9px;
+  flex-wrap: wrap;
 }
 
-/* ============================================================
+/* =====================
    CONTACT SECTION
-   TODO: Style contact form
-   ============================================================ */
+   ===================== */
 .contact {
-    /* TODO: Section styling */
+   
+  padding: 70px 0;
+  background-color: var(--color-background-alt);
 }
 
 .contact h2 {
-    /* TODO: Section heading */
+  font-size: var(--font-size-2xl);
+  text-align: center;
+  margin-bottom: 12px;
+  color: var(--color-text);
+}
+.contact h2::after {
+  content: '';
+  display: block;
+  width: 45px;
+  height: 3px;
+ background: var(--color-primary);
+  margin: 7px auto 0;
 }
 
+.contact .container > p {
+  text-align: center;
+   color: var(--color-text-light);
+  margin-bottom: 32px;
+}
+
+/* style contact form - max-width, centering */
 .contact__form {
-    /* TODO: Style contact form
-       Consider: max-width, centering */
+  max-width: 575px;
+  margin: 0 auto;
+display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
 }
 
+/* form group spacing */
 .form-group {
-    /* TODO: Form group spacing */
+  display: flex;
+  flex-direction: column;
+   gap: 5px;
 }
 
+/* label styles */
 .form-group label {
-    /* TODO: Label styles */
+  font-weight: 600;
+  color: var(--color-text);
+   
+   font-size: var(--font-size-sm);
 }
 
+/* style form inputs - width, padding, border, border-radius, font */
 .form-group input,
 .form-group textarea {
-    /* TODO: Style form inputs
-     * - width: 100%
-     * - padding, border, border-radius
-     * - font-family, font-size
-     * - transition
-     */
+   width: 100%;
+  padding: 9px 13px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+   transition: border-color var(--transition-fast);
 }
 
+/* focus state */
 .form-group input:focus,
 .form-group textarea:focus {
-    /* TODO: Focus state */
+  outline: none;
+  border-color: var(--color-primary);
 }
 
+/* textarea specific styles */
 .form-group textarea {
-    /* TODO: Textarea specific styles */
+  resize: vertical;
+  min-height: 115px;
 }
 
-/* ============================================================
+/* =====================
    FOOTER
-   TODO: Style footer
-   ============================================================ */
+   ===================== */
 .footer {
-    /* TODO: Footer styling
-     * - background, color, padding
-     * - text-align
-     */
+   
+  background-color: #0f3460;
+  padding: 28px 0;
+  border-top: 1px solid var(--color-border);
 }
 
+/* footer layout (flexbox) */
 .footer .container {
-    /* TODO: Footer layout (Flexbox) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+  text-align: center;
 }
 
+.footer p {
+  color: var(--color-text-light);
+   font-size: var(--font-size-sm);
+}
+
+/* social links container */
 .footer__social {
-    /* TODO: Social links container */
+  display: flex;
+   gap: 20px;
 }
 
+/* social link styles */
 .footer__social a {
-    /* TODO: Social link styles */
+  color: var(--color-text-light);
+   
+  font-size: var(--font-size-sm);
 }
 
 .footer__social a:hover {
-    /* TODO: Social link hover */
+  color: var(--color-secondary);
+   text-decoration: none;
 }
 
-/* ============================================================
-   RESPONSIVE BREAKPOINTS
-   TODO: Implement mobile-first responsive design
+.footer a[href="#top"] {
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+}
 
-   Start with mobile styles above, then add complexity
-   for larger screens below.
-   ============================================================ */
-
-/* Tablet (768px and up) */
+/* =====================
+   TABLET (768px and up)
+   ===================== */
 @media (min-width: 768px) {
-    /* TODO: Add tablet styles
-       - Adjust typography sizes
-       - Change layouts (Grid columns, Flexbox directions)
-       - Adjust spacing */
+   
+
+  .container {
+    padding: 0 28px;
+  }
+
+  .hero__content h1 {
+     
+    font-size: 3.4rem;
+  }
+
+  /* desktop: side by side */
+  .about__content {
+    flex-direction: row;
+     align-items: flex-start;
+  }
+
+  .about__image img {
+    width: 220px;
+    height: 220px;
+    flex-shrink: 0;
+     margin: 0;
+  }
+
+  /* tablet: 2 columns */
+  .projects__grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer .container {
+    flex-direction: row;
+    justify-content: space-between;
+     text-align: left;
+  }
 }
 
-/* Desktop (1024px and up) */
+/* =====================
+   DESKTOP (1024px and up)
+   ===================== */
 @media (min-width: 1024px) {
-    /* TODO: Add desktop styles
-       - Further layout adjustments
-       - Larger typography
-       - More spacing */
+   
+
+  .hero__content h1 {
+    font-size: 4rem;
+     
+  }
+
+  /* desktop: 3 columns */
+  .projects__grid {
+ grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about__image img {
+    width: 260px;
+     height: 260px;
+  }
 }
 
-/* Large Desktop (1200px and up) */
+/* =====================
+   LARGE DESKTOP (1200px and up)
+   ===================== */
 @media (min-width: 1200px) {
-    /* TODO: Add large desktop styles (optional) */
+
+  .about,
+ .projects,
+  .contact {
+    padding: 90px 0;
+  }
 }
 
-/* ============================================================
+/* =====================
    ADDITIONAL STYLES
-   TODO: Add any additional styles you need
-   ============================================================ */
+   ===================== */
+section {
+
+ padding: 70px 0;
+}
